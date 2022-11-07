@@ -1,5 +1,7 @@
 import React from "react";
+import About from "../../Component/Home/About";
 import Banar from "../../Component/Home/Banar";
+import Reveow from "../../Component/Home/Reveow";
 import Service from "../../Component/Home/Service";
 
 const Home = () => {
@@ -10,6 +12,12 @@ const Home = () => {
       </section>
       <section className="w-10/12 mx-auto">
         <Service></Service>
+      </section>
+      <section className="w-10/12 mx-auto">
+        <About></About>
+      </section>
+      <section className="w-10/12 mx-auto">
+        <Reveow></Reveow>
       </section>
     </div>
   );

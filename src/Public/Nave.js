@@ -43,10 +43,15 @@ const Nave = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-900  hover:underline">
-                  Company
-                </a>
+                <Link
+                  to="/post"
+                  className="text-gray-900  hover:underline"
+                  aria-current="page"
+                >
+                  Post
+                </Link>
               </li>
+
               <li>
                 <a href="#" className="text-gray-900  hover:underline">
                   Team
