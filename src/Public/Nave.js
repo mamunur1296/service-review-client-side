@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../Assits/preview.png";
 
 const Nave = () => {
@@ -33,13 +34,13 @@ const Nave = () => {
           <div className="flex items-center">
             <ul className="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/home"
                   className="text-gray-900  hover:underline"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-gray-900  hover:underline">
