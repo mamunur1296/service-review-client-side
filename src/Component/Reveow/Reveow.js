@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 
-const PostService = () => {
+const Reveow = () => {
   const [post, setPost] = useState({});
   const handalPostForm = (e) => {
     e.preventDefault();
-    const from = e.target;
-    fetch("http://localhost:5000/poats", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.acknowledged) {
-          alert("post complite");
-          from.reset();
-        }
-      });
+    // const from = e.target;
+    // fetch("http://localhost:5000/poats", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(post),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.acknowledged) {
+    //       alert("post complite");
+    //       from.reset();
+    //     }
+    //   });
   };
   const handalPostfild = (e) => {
     const fildName = e.target.name;
@@ -83,4 +83,4 @@ const PostService = () => {
   );
 };
 
-export default PostService;
+export default Reveow;

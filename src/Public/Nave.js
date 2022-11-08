@@ -51,16 +51,23 @@ const Nave = () => {
                   Post
                 </Link>
               </li>
-
               <li>
-                <a href="#" className="text-gray-900  hover:underline">
-                  Team
-                </a>
+                <Link
+                  to="/login"
+                  className="text-gray-900  hover:underline"
+                  aria-current="page"
+                >
+                  login
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-900  hover:underline">
-                  Features
-                </a>
+                <Link
+                  to="/register"
+                  className="text-gray-900  hover:underline"
+                  aria-current="page"
+                >
+                  regester
+                </Link>
               </li>
             </ul>
           </div>
