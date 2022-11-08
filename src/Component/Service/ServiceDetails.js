@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 import Reveow from "../Reveow/Reveow";
@@ -6,7 +6,14 @@ import Reveow from "../Reveow/Reveow";
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const { data } = useLoaderData();
-  console.log(data);
+  const [revew, setRevew] = useState([]);
+  useEffect(() => {
+    fetch("")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
   return (
     <div>
       <section className="p-5 mx-auto w-10/12  text-black">
@@ -88,7 +95,7 @@ const ServiceDetails = () => {
           <div>
             {user ? (
               <>
-                <Reveow></Reveow>
+                <Reveow key={data._id} data={data}></Reveow>
               </>
             ) : (
               <>
