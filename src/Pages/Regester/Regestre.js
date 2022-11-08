@@ -3,18 +3,26 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 
 const Regestre = () => {
-  const { regester } = useContext(AuthContext);
+  const { regester, updateNameOrPhoto } = useContext(AuthContext);
   const handalRegesterRorm = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = `${form.first.value}` + `${form.last.value}`;
+    const fast = form.first.value;
+    const last = form.last.value;
+    const name = fast + " " + last;
     const img = form.imgurl.value;
     const email = form.email.value;
     const password = form.password.value;
     regester(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(user);
+        const userinfo = {
+          displayName: name,
+          photoURL: img,
+        };
+        updateNameOrPhoto(userinfo)
+          .then((res) => {})
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
     console.log(name, img, email, password);

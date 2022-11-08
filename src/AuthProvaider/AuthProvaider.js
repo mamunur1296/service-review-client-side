@@ -6,6 +6,8 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/Firebade.config";
 export const AuthContext = createContext();
@@ -23,6 +25,12 @@ const AuthProvaider = ({ children }) => {
   const googleLogin = () => {
     return signInWithPopup(auth, provider);
   };
+  const logout = () => {
+    return signOut(auth);
+  };
+  const updateNameOrPhoto = (userinfo) => {
+    return updateProfile(auth.currentUser, userinfo);
+  };
   useEffect(() => {
     const unsuscript = onAuthStateChanged(auth, (newuser) => {
       setUser(newuser);
@@ -35,6 +43,8 @@ const AuthProvaider = ({ children }) => {
     regester,
     login,
     googleLogin,
+    logout,
+    updateNameOrPhoto,
   };
   return (
     <div>

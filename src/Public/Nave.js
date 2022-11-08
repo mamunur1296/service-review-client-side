@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../Assits/preview.png";
+import { AuthContext } from "../AuthProvaider/AuthProvaider";
 
 const Nave = () => {
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
+  const handalLogOut = () => {
+    logout()
+      .then((res) => {})
+      .catch((err) => {});
+  };
   return (
     <div>
       <nav className="bg-gray-300 border-gray-200 ">
@@ -20,11 +28,10 @@ const Nave = () => {
             >
               (555) 412-1234
             </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-blue-600  hover:underline"
-            >
-              Login
+            <a href="https://flowbite.com" className="flex items-center">
+              <span className="self-center text-xl font-semibold whitespace-nowrap ">
+                {user?.displayName}
+              </span>
             </a>
           </div>
         </div>
@@ -68,6 +75,15 @@ const Nave = () => {
                 >
                   regester
                 </Link>
+              </li>
+              <li>
+                <button
+                  onClick={handalLogOut}
+                  className="text-gray-900  hover:underline"
+                  aria-current="page"
+                >
+                  log out
+                </button>
               </li>
             </ul>
           </div>

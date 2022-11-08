@@ -1,8 +1,10 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 import Reveow from "../Reveow/Reveow";
 
 const ServiceDetails = () => {
+  const { user } = useContext(AuthContext);
   const { data } = useLoaderData();
   console.log(data);
   return (
@@ -84,7 +86,15 @@ const ServiceDetails = () => {
         <div>
           <button>inter your reveow</button>
           <div>
-            <Reveow></Reveow>
+            {user ? (
+              <>
+                <Reveow></Reveow>
+              </>
+            ) : (
+              <>
+                <Link to="/login">Please login to add a review</Link>
+              </>
+            )}
           </div>
         </div>
       </section>
