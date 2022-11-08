@@ -1,12 +1,27 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import { Link } from "react-router-dom";
 
 const ServiceCart = ({ sarves }) => {
   const { title, _id, photo, body, price } = sarves;
 
+  const handalservesDetails = (id) => {
+    fetch(`http://localhost:5000/servicedetails/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div>
       <div className="w-full max-w-sm bg-white rounded-lg shadow-md ">
-        <img src={photo} alt="" />
+        <PhotoProvider>
+          <PhotoView src={photo}>
+            <img src={photo} alt="" />
+          </PhotoView>
+        </PhotoProvider>
 
         <div className="px-5 pb-5">
           <a href="#">
@@ -76,12 +91,13 @@ const ServiceCart = ({ sarves }) => {
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               {price}
             </span>
-            <a
-              href="#"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            <Link
+              onClick={() => handalservesDetails(_id)}
+              to={`/servicedetails/${_id}`}
+              className=" outline outline-1 py-2 px-5 rounded"
             >
-              Add to cart
-            </a>
+              Service Details
+            </Link>
           </div>
         </div>
       </div>
