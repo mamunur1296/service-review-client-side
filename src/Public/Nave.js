@@ -5,7 +5,6 @@ import { AuthContext } from "../AuthProvaider/AuthProvaider";
 
 const Nave = () => {
   const { logout, user } = useContext(AuthContext);
-  console.log(user);
   const handalLogOut = () => {
     logout()
       .then((res) => {})
@@ -49,42 +48,58 @@ const Nave = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/post"
-                  className="text-gray-900  hover:underline"
-                  aria-current="page"
-                >
-                  Post
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/login"
-                  className="text-gray-900  hover:underline"
-                  aria-current="page"
-                >
-                  login
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/register"
-                  className="text-gray-900  hover:underline"
-                  aria-current="page"
-                >
-                  regester
-                </Link>
-              </li>
-              <li>
-                <button
-                  onClick={handalLogOut}
-                  className="text-gray-900  hover:underline"
-                  aria-current="page"
-                >
-                  log out
-                </button>
-              </li>
+              {user ? (
+                <>
+                  <li>
+                    <Link
+                      to="/post"
+                      className="text-gray-900  hover:underline"
+                      aria-current="page"
+                    >
+                      Post
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/myrevew"
+                      className="text-gray-900  hover:underline"
+                      aria-current="page"
+                    >
+                      My review
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handalLogOut}
+                      className="text-gray-900  hover:underline"
+                      aria-current="page"
+                    >
+                      log out
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link
+                      to="/login"
+                      className="text-gray-900  hover:underline"
+                      aria-current="page"
+                    >
+                      login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/register"
+                      className="text-gray-900  hover:underline"
+                      aria-current="page"
+                    >
+                      regester
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

@@ -4,8 +4,10 @@ import ServiceDetails from "../../Component/Service/ServiceDetails";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Main from "../../Pages/Main/Main";
+import Myreveow from "../../Pages/Myreveow/Myreveow";
 import PostService from "../../Pages/Post/PostService";
 import Regestre from "../../Pages/Regester/Regestre";
+import PrivateRouter from "../Priveate/PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Regestre></Regestre>,
+      },
+      {
+        path: "/myrevew",
+        element: (
+          <PrivateRouter>
+            <Myreveow></Myreveow>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/servicedetails/:id",
