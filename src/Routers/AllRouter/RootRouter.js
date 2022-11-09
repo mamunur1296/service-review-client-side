@@ -24,7 +24,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/post",
-        element: <PostService></PostService>,
+        element: (
+          <PrivateRouter>
+            <PostService></PostService>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/allService",

@@ -1,20 +1,8 @@
 import React from "react";
 
-const MyreceowColl = ({ revew }) => {
+const MyreceowColl = ({ revew, handalDeletReveow }) => {
   const { userImg, body, name, postTime, title, userEmail, _id } = revew;
 
-  const handalDeletReveow = (id) => {
-    const idExjest = window.confirm("are you shore Delete it ");
-    if (idExjest) {
-      fetch(``, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
-    }
-  };
   const handalUpdateReveow = (id) => {
     console.log("delit");
   };

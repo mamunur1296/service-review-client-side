@@ -17,23 +17,29 @@ const AuthProvaider = ({ children }) => {
   const [user, setUser] = useState(NaN);
   const [loder, setLoder] = useState(true);
   const regester = (email, password) => {
+    setLoder(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const login = (email, password) => {
+    setLoder(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const googleLogin = () => {
+    setLoder(true);
     return signInWithPopup(auth, provider);
   };
   const logout = () => {
+    localStorage.removeItem("token");
     return signOut(auth);
   };
   const updateNameOrPhoto = (userinfo) => {
+    setLoder(true);
     return updateProfile(auth.currentUser, userinfo);
   };
   useEffect(() => {
     const unsuscript = onAuthStateChanged(auth, (newuser) => {
       setUser(newuser);
+      setLoder(false);
     });
     return () => unsuscript();
   }, []);

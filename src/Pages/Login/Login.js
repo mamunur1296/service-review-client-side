@@ -1,9 +1,17 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 
 const Login = () => {
   const { login, googleLogin } = useContext(AuthContext);
+  const locstion = useLocation();
+  const navigate = useNavigate();
+  const from = locstion?.state?.from?.pathname || "/";
   const handalLoginFrom = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,7 +20,20 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(user);
+        fetch("http://localhost:5000/jwttoken", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user?.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message) {
+              localStorage.setItem("token", data.data);
+            }
+          });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
     console.log(email, password);
@@ -21,7 +42,20 @@ const Login = () => {
     googleLogin()
       .then((res) => {
         const user = res.user;
-        console.log(user);
+        fetch("http://localhost:5000/jwttoken", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user?.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message) {
+              localStorage.setItem("token", data.data);
+            }
+          });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };

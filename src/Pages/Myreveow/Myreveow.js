@@ -1,20 +1,49 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 import MyreceowColl from "./MyreceowColl";
 
 const Myreveow = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [reveos, setReveos] = useState([]);
-  console.log(reveos);
+  const [refresh, setRefresh] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    fetch(`http://localhost:5000/reveousbyemail/?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/reveousbyemail/?email=${user?.email}`, {
+      headers: {
+        authorijation: `Bearrr ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          return res.json();
+        }
+        logout();
+        navigate("/login");
+      })
       .then((data) => {
         if (data.message) {
           setReveos(data.data);
         }
       });
-  }, [user?.email]);
+  }, [user?.email, refresh]);
+  const handalDeletReveow = (id) => {
+    const idExjest = window.confirm("are you shore Delete it ");
+    if (idExjest) {
+      fetch(`http://localhost:5000/deleterevew/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            alert("suxcess fully delete");
+            setRefresh(!refresh);
+          }
+        });
+    }
+  };
   return (
     <div>
       <div class="overflow-x-auto relative w-10/12 mx-auto shadow-md sm:rounded-lg">
@@ -40,7 +69,11 @@ const Myreveow = () => {
             </tr>
           </thead>
           {reveos.map((revew) => (
-            <MyreceowColl key={revew._id} revew={revew}></MyreceowColl>
+            <MyreceowColl
+              key={revew._id}
+              handalDeletReveow={handalDeletReveow}
+              revew={revew}
+            ></MyreceowColl>
           ))}
         </table>
       </div>
