@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../Assits/preview.png";
 import { AuthContext } from "../AuthProvaider/AuthProvaider";
+import { FaRegCommentDots } from "react-icons/fa";
 
 const Nave = () => {
   const { logout, user } = useContext(AuthContext);
@@ -17,21 +18,21 @@ const Nave = () => {
           <a href="https://flowbite.com" className="flex items-center">
             <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap ">
-              CA ON WEB .
+              CA ON CONSULTATOR
             </span>
           </a>
           <div className="flex items-center">
-            <a
-              href="tel:5541251234"
-              className="mr-6 text-sm font-medium text-gray-500  hover:underline"
+            <th
+              scope="row"
+              class="flex items-center   text-gray-900 whitespace-nowrap"
             >
-              (555) 412-1234
-            </a>
-            <a href="https://flowbite.com" className="flex items-center">
-              <span className="self-center text-xl font-semibold whitespace-nowrap ">
-                {user?.displayName}
-              </span>
-            </a>
+              <FaRegCommentDots class="w-10 h-10 text-red-400 rounded-full"></FaRegCommentDots>
+
+              <div class="pl-3">
+                <div class="font-normal text-gray-500">Contact Me</div>
+                <div class="text-base font-semibold">+1767988385</div>
+              </div>
+            </th>
           </div>
         </div>
       </nav>
