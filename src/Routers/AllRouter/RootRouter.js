@@ -5,6 +5,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Main from "../../Pages/Main/Main";
 import Myreveow from "../../Pages/Myreveow/Myreveow";
+import MyrevewUpdate from "../../Pages/Myreveow/MyrevewUpdate";
 import PostService from "../../Pages/Post/PostService";
 import Regestre from "../../Pages/Regester/Regestre";
 import PrivateRouter from "../Priveate/PrivateRouter";
@@ -41,6 +42,12 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Regestre></Regestre>,
+      },
+      {
+        path: "/recewupdate/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allrevewsbyid/${params.id}`),
+        element: <MyrevewUpdate></MyrevewUpdate>,
       },
       {
         path: "/myrevew",

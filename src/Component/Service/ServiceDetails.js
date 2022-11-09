@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
+import useTitle from "../../Hocks/useTitle";
 import Reveow from "../Reveow/Reveow";
 import Revews from "../Revews/Revews";
 
@@ -20,6 +21,7 @@ const ServiceDetails = () => {
         }
       });
   }, [refresh]);
+  useTitle(data.title);
   return (
     <div>
       <section className="p-5 mx-auto w-10/12  text-black">

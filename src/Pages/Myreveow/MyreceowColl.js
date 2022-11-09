@@ -1,11 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyreceowColl = ({ revew, handalDeletReveow }) => {
   const { userImg, body, name, postTime, title, userEmail, _id } = revew;
 
-  const handalUpdateReveow = (id) => {
-    console.log("delit");
-  };
   return (
     <tbody>
       <tr class="bg-white border-b  hover:bg-gray-100 ">
@@ -24,9 +22,11 @@ const MyreceowColl = ({ revew, handalDeletReveow }) => {
           <div class="flex items-center">{title}</div>
         </td>
         <td class="py-4 px-6">
-          <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-            Edit user
-          </button>
+          <Link to={`/recewupdate/${_id}`}>
+            <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+              Update
+            </button>
+          </Link>
         </td>
         <td class="py-4 px-6">
           <button
