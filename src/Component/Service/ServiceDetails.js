@@ -10,14 +10,13 @@ const ServiceDetails = () => {
   const { data } = useLoaderData();
   const [revew, setRevew] = useState([]);
   const [refresh, setRefresh] = useState(false);
-
+  console.log(revew);
   useEffect(() => {
-    fetch(`https://my-ca-server.vercel.app/allrevew/${data._id}`)
+    fetch(`http://localhost:5000/allrevew/${data._id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {
           setRevew(data.data);
-          setRefresh(!refresh);
         }
       });
   }, [refresh]);
@@ -66,7 +65,12 @@ const ServiceDetails = () => {
           <div>
             {user ? (
               <>
-                <Reveow key={data._id} data={data}></Reveow>
+                <Reveow
+                  key={data._id}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
+                  data={data}
+                ></Reveow>
               </>
             ) : (
               <>

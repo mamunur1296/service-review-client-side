@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react";
 import PostControlColl from "./PostControlColl";
 
-const PostControl = () => {
+const PostControl = ({ refresh, setRefresh }) => {
   const [serves, setServes] = useState([]);
-  const [refresh, setRefresh] = useState(false);
+  console.log(serves);
   useEffect(() => {
-    fetch("https://my-ca-server.vercel.app/allservises")
+    fetch("http://localhost:5000/allservises")
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {
           setServes(data.data);
-          setRefresh(!refresh);
         }
       });
   }, [refresh]);
+  const handalPostDelete = (id) => {
+    const proceed = window.confirm("are you sure");
+    if (proceed) {
+      fetch(`http://localhost:5000/deletePost/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            alert("success");
+            setRefresh(!refresh);
+          }
+        });
+    }
+  };
   return (
     <div>
       <div>
@@ -44,7 +58,11 @@ const PostControl = () => {
             </tr>
           </thead>
           {serves.map((serv) => (
-            <PostControlColl key={serv._id} serv={serv}></PostControlColl>
+            <PostControlColl
+              handalPostDelete={handalPostDelete}
+              key={serv._id}
+              serv={serv}
+            ></PostControlColl>
           ))}
         </table>
       </div>

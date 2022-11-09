@@ -8,6 +8,7 @@ import Main from "../../Pages/Main/Main";
 import Myreveow from "../../Pages/Myreveow/Myreveow";
 import MyrevewUpdate from "../../Pages/Myreveow/MyrevewUpdate";
 import PostService from "../../Pages/Post/PostService";
+import PostUpdate from "../../Pages/Post/PostUpdate";
 import Regestre from "../../Pages/Regester/Regestre";
 import PrivateRouter from "../Priveate/PrivateRouter";
 
@@ -46,9 +47,15 @@ export const router = createBrowserRouter([
         element: <Regestre></Regestre>,
       },
       {
+        path: "/postUpdate/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/servicedetails/${params.id}`),
+        element: <PostUpdate></PostUpdate>,
+      },
+      {
         path: "/recewupdate/:id",
         loader: ({ params }) =>
-          fetch(`https://my-ca-server.vercel.app/allrevewsbyid/${params.id}`),
+          fetch(`http://localhost:5000/allrevewsbyid/${params.id}`),
         element: <MyrevewUpdate></MyrevewUpdate>,
       },
       {
@@ -62,7 +69,7 @@ export const router = createBrowserRouter([
       {
         path: "/servicedetails/:id",
         loader: ({ params }) =>
-          fetch(`https://my-ca-server.vercel.app/servicedetails/${params.id}`),
+          fetch(`http://localhost:5000/servicedetails/${params.id}`),
         element: <ServiceDetails></ServiceDetails>,
       },
     ],

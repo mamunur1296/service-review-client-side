@@ -4,7 +4,7 @@ import ServiceCart from "./ServiceCart";
 const AllService = () => {
   const [serves, setServes] = useState([]);
   useEffect(() => {
-    fetch("https://my-ca-server.vercel.app/allservises")
+    fetch("http://localhost:5000/allservises")
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {

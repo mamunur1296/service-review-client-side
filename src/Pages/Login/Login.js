@@ -20,7 +20,7 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         const user = res.user;
-        fetch("https://my-ca-server.vercel.app/jwttoken", {
+        fetch("http://localhost:5000/jwttoken", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -42,7 +42,7 @@ const Login = () => {
     googleLogin()
       .then((res) => {
         const user = res.user;
-        fetch("https://my-ca-server.vercel.app/jwttoken", {
+        fetch("http://localhost:5000/jwttoken", {
           method: "POST",
           headers: {
             "content-type": "application/json",
