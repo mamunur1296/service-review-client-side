@@ -12,7 +12,7 @@ const ServiceDetails = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allrevew/${data._id}`)
+    fetch(`https://my-ca-server.vercel.app/allrevew/${data._id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {

@@ -5,7 +5,7 @@ const PostControl = () => {
   const [serves, setServes] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/allservises")
+    fetch("https://my-ca-server.vercel.app/allservises")
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {

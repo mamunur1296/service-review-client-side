@@ -2,12 +2,13 @@ import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
+import ReactStars from "react-rating-stars-component";
 
 const ServiceCart = ({ sarves }) => {
   const { title, _id, photo, body, price } = sarves;
 
   const handalservesDetails = (id) => {
-    fetch(`http://localhost:5000/servicedetails/${id}`)
+    fetch(`https://my-ca-server.vercel.app/servicedetails/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -29,6 +30,7 @@ const ServiceCart = ({ sarves }) => {
               {title}
             </h5>
           </a>
+
           <div className="flex items-center mt-2.5 mb-5">
             <svg
               aria-hidden="true"

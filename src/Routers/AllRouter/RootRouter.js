@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import EooroPage from "../../Component/Error/EooroPage";
 import AllService from "../../Component/Home/AllService";
 import ServiceDetails from "../../Component/Service/ServiceDetails";
 import Home from "../../Pages/Home/Home";
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <EooroPage></EooroPage>,
     children: [
       {
         path: "/",
@@ -46,7 +48,7 @@ export const router = createBrowserRouter([
       {
         path: "/recewupdate/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allrevewsbyid/${params.id}`),
+          fetch(`https://my-ca-server.vercel.app/allrevewsbyid/${params.id}`),
         element: <MyrevewUpdate></MyrevewUpdate>,
       },
       {
@@ -60,7 +62,7 @@ export const router = createBrowserRouter([
       {
         path: "/servicedetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/servicedetails/${params.id}`),
+          fetch(`https://my-ca-server.vercel.app/servicedetails/${params.id}`),
         element: <ServiceDetails></ServiceDetails>,
       },
     ],
