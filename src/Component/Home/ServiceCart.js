@@ -89,7 +89,7 @@ const ServiceCart = ({ sarves }) => {
           </div>
           <div className="flex justify-between items-center">
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              {price}
+              ${price}
             </span>
             <Link
               onClick={() => handalservesDetails(_id)}

@@ -15,7 +15,7 @@ const Home = () => {
       <section className="w-10/12 mx-auto">
         <Service></Service>
       </section>
-      <section className="w-10/12 mx-auto">
+      <section className="w-10/12 mx-auto my-10 bg-orange-50">
         <About></About>
       </section>
       <section className="w-10/12 mx-auto">

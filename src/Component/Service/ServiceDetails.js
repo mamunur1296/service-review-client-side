@@ -38,14 +38,14 @@ const ServiceDetails = () => {
               >
                 {data.title}
               </a>
-              <p className="text-xs text-gray-400">
-                By
+              <p className="text-xs text-gray-100">
+                Proce : $
                 <a
                   rel="noopener noreferrer"
                   href="#"
                   className="text-xs hover:underline"
                 >
-                  Leroy Jenkins
+                  {data.price}
                 </a>
               </p>
             </div>

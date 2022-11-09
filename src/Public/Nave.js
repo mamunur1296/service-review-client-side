@@ -29,8 +29,10 @@ const Nave = () => {
               <FaRegCommentDots class="w-10 h-10 text-red-400 rounded-full"></FaRegCommentDots>
 
               <div class="pl-3">
-                <div class="font-normal text-gray-500">Contact Me</div>
-                <div class="text-base font-semibold">+1767988385</div>
+                <div class="font-normal text-green-700">Contact Me</div>
+                <div class="text-base font-semibold text-gray-800">
+                  +1767988385
+                </div>
               </div>
             </th>
           </div>
