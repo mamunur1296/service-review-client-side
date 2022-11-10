@@ -34,4 +34,4 @@ CSS Laibarry -> [tailwindcss](https://tailwindcss.com/docs/guides/create-react-a
 
 # Description .
 
-This project name is 'All-IT-BD' . It is vary help full Of my students . It will help you gain wisdom. Here you can learn various things while playing . I used the above research to do this project.This project will be updated regularly . I will continue to build it with my best .
+This project name is 'CA ON CONSULTATOR' . It is vary help full Of my students . It will help you gain wisdom. Here you can learn various things while playing . I used the above research to do this project.This project will be updated regularly . I will continue to build it with my best .
