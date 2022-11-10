@@ -6,7 +6,7 @@ const PostControl = ({ refresh, setRefresh }) => {
   const [serves, setServes] = useState([]);
   console.log(serves);
   useEffect(() => {
-    fetch("http://localhost:5000/allservises")
+    fetch("https://my-ca-server.vercel.app/allservises")
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {
@@ -17,7 +17,7 @@ const PostControl = ({ refresh, setRefresh }) => {
   const handalPostDelete = (id) => {
     const proceed = window.confirm("are you sure");
     if (proceed) {
-      fetch(`http://localhost:5000/deletePost/${id}`, {
+      fetch(`https://my-ca-server.vercel.app/deletePost/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

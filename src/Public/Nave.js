@@ -38,10 +38,10 @@ const Nave = () => {
           </div>
         </div>
       </nav>
-      <nav className="bg-gray-200 ">
+      <nav className="bg-gray-200  ">
         <div className="py-3 px-4 mx-auto max-w-screen-xl md:px-6">
-          <div className="flex items-center">
-            <ul className="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
+          <div className=" md:flex items-center">
+            <ul className=" block sm:flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
               <li>
                 <Link
                   to="/home"

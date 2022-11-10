@@ -11,7 +11,7 @@ const MyrevewUpdate = () => {
 
   const HandalRevewUpdate = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/updatereveow/${data._id}`, {
+    fetch(`https://my-ca-server.vercel.app/updatereveow/${data._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

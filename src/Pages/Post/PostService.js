@@ -11,7 +11,7 @@ const PostService = () => {
   const handalPostForm = (e) => {
     e.preventDefault();
     const from = e.target;
-    fetch("http://localhost:5000/poats", {
+    fetch("https://my-ca-server.vercel.app/poats", {
       method: "POST",
       headers: {
         "content-type": "application/json",

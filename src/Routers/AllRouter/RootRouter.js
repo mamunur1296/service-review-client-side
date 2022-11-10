@@ -76,13 +76,13 @@ export const router = createBrowserRouter([
       {
         path: "/postUpdate/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/servicedetails/${params.id}`),
+          fetch(`https://my-ca-server.vercel.app/servicedetails/${params.id}`),
         element: <PostUpdate></PostUpdate>,
       },
       {
         path: "/recewupdate/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allrevewsbyid/${params.id}`),
+          fetch(`https://my-ca-server.vercel.app/allrevewsbyid/${params.id}`),
         element: <MyrevewUpdate></MyrevewUpdate>,
       },
       {
@@ -96,7 +96,7 @@ export const router = createBrowserRouter([
       {
         path: "/servicedetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/servicedetails/${params.id}`),
+          fetch(`https://my-ca-server.vercel.app/servicedetails/${params.id}`),
         element: <ServiceDetails></ServiceDetails>,
       },
     ],

@@ -9,7 +9,7 @@ const ServiceCart = ({ sarves }) => {
   const [rating, setRating] = useState("");
 
   const handalservesDetails = (id) => {
-    fetch(`http://localhost:5000/servicedetails/${id}`)
+    fetch(`https://my-ca-server.vercel.app/servicedetails/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

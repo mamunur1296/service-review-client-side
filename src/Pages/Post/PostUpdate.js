@@ -10,7 +10,7 @@ const PostUpdate = () => {
   const [refresh, setRefresh] = useState(false);
   const handalPostForm = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/updatepost/${data._id}`, {
+    fetch(`https://my-ca-server.vercel.app/updatepost/${data._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

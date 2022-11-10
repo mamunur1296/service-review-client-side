@@ -32,7 +32,7 @@ const Reveow = ({ data, setRefresh, refresh }) => {
       postTime,
     };
 
-    fetch("http://localhost:5000/revewinfo", {
+    fetch("https://my-ca-server.vercel.app/revewinfo", {
       method: "POST",
       headers: {
         "content-type": "application/json",

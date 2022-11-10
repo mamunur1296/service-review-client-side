@@ -13,11 +13,14 @@ const Myreveow = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reveousbyemail/?email=${user?.email}`, {
-      headers: {
-        authorijation: `Bearrr ${localStorage.getItem("token")}`,
-      },
-    })
+    fetch(
+      `https://my-ca-server.vercel.app/reveousbyemail/?email=${user?.email}`,
+      {
+        headers: {
+          authorijation: `Bearrr ${localStorage.getItem("token")}`,
+        },
+      }
+    )
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
@@ -35,7 +38,7 @@ const Myreveow = () => {
   const handalDeletReveow = (id) => {
     const idExjest = window.confirm("are you shore Delete it ");
     if (idExjest) {
-      fetch(`http://localhost:5000/deleterevew/${id}`, {
+      fetch(`https://my-ca-server.vercel.app/deleterevew/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

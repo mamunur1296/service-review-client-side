@@ -23,7 +23,7 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         toast.success("login successfull");
-        fetch("http://localhost:5000/jwttoken", {
+        fetch("https://my-ca-server.vercel.app/jwttoken", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -47,7 +47,7 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         toast.success("login successfull");
-        fetch("http://localhost:5000/jwttoken", {
+        fetch("https://my-ca-server.vercel.app/jwttoken", {
           method: "POST",
           headers: {
             "content-type": "application/json",
