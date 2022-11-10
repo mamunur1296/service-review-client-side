@@ -21,7 +21,7 @@ Stores by Mongodb :- [Link](https://www.mongodb.com/).
 React Router Dom v6.4
 Documentation Link -> [Link](https://reactrouter.com/en/main/start/tutorial).
 
-Resources & Credits
+## Resources & Credits
 
 Tailwind Components -> [Kitwind](https://kitwind.io/products/kometa/components).
 
