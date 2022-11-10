@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   Link,
   useLocation,
   useNavigate,
   useNavigation,
 } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 
 const Login = () => {
   const { login, googleLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const locstion = useLocation();
   const navigate = useNavigate();
   const from = locstion?.state?.from?.pathname || "/";
@@ -20,6 +22,7 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         const user = res.user;
+        toast.success("login successfull");
         fetch("http://localhost:5000/jwttoken", {
           method: "POST",
           headers: {
@@ -35,13 +38,15 @@ const Login = () => {
           });
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
-    console.log(email, password);
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   const handalGoogleLonin = () => {
     googleLogin()
       .then((res) => {
         const user = res.user;
+        toast.success("login successfull");
         fetch("http://localhost:5000/jwttoken", {
           method: "POST",
           headers: {
@@ -57,12 +62,15 @@ const Login = () => {
           });
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div>
-      <div className="w-full w-11/12 md:w-5/12 mx-auto p-8 space-y-3 rounded-xl  text-black">
+      <div className="w-full w-11/12 my-16 md:w-5/12 mx-auto p-8 space-y-3 rounded-xl  text-black">
         <h1 className="text-4xl font-bold text-center">Login</h1>
+        <p className="text-red-500 text-xl">{error}</p>
         <form
           onSubmit={handalLoginFrom}
           className="space-y-6 ng-untouched ng-pristine ng-valid"

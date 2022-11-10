@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
+import useTitle from "../../Hocks/useTitle";
 
 const Regestre = () => {
+  useTitle("Regester");
   const { regester, updateNameOrPhoto } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handalRegesterRorm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,6 +21,8 @@ const Regestre = () => {
     regester(email, password)
       .then((res) => {
         const user = res.user;
+        toast.success("Ragester successfull");
+        navigate("/");
         const userinfo = {
           displayName: name,
           photoURL: img,
@@ -24,13 +31,16 @@ const Regestre = () => {
           .then((res) => {})
           .catch((err) => console.log(err));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setError(err.message);
+      });
     console.log(name, img, email, password);
   };
   return (
     <div>
-      <div className="w-full w-11/12 md:w-5/12 mx-auto p-8 space-y-3 rounded-xl  text-black">
+      <div className="w-full w-11/12 my-16 md:w-5/12 mx-auto p-8 space-y-3 rounded-xl  text-black">
         <h1 className="text-3xl font-bold text-center">Regester</h1>
+        <p className="text-red-500 text-xl">{error}</p>
         <form
           onSubmit={handalRegesterRorm}
           className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -66,8 +76,8 @@ const Regestre = () => {
             <input
               type="text"
               name="imgurl"
-              placeholder=" Photo URL"
               required
+              placeholder=" Photo URL"
               className="w-full px-4 py-3 rounded-md border-gray-800  text-gray-800 "
             />
           </div>

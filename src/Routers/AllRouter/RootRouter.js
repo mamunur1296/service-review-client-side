@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import EooroPage from "../../Component/Error/EooroPage";
 import AllService from "../../Component/Home/AllService";
 import ServiceDetails from "../../Component/Service/ServiceDetails";
+import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Main from "../../Pages/Main/Main";
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Regestre></Regestre>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/postUpdate/:id",

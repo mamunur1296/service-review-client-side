@@ -49,15 +49,15 @@ const ServiceCart = ({ sarves }) => {
             <p>{body ? body.slice(0, 100) + "..." : " no discription"}</p>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              ${price}
+            <span className="text-xl font-bold text-gray-900 dark:text-white">
+              Proce: ${price}
             </span>
             <Link
               onClick={() => handalservesDetails(_id)}
               to={`/servicedetails/${_id}`}
-              className=" outline outline-1 py-2 px-5 rounded"
+              className=" text-xl outline outline-1 outline-green-500 hover:outline-red-500 py-2 px-10 rounded"
             >
-              Service Details
+              View Details
             </Link>
           </div>
         </div>

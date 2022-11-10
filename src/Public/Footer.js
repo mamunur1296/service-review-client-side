@@ -1,40 +1,96 @@
 import React from "react";
+import { FaRegCommentDots } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import logo from "../Assits/favicon.png";
 
 const Footer = () => {
   return (
-    <div>
+    <div className=" bg-gray-200">
       <footer className="p-4 bg-gray-200 sm:p-6 w-10/12 mx-auto ">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="https://flowbite.com/" className="flex items-center">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="mr-3 h-8"
-                alt="FlowBite Logo"
-              />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap ">
-                Flowbite
+              <img src={logo} className="mr-3 h-8" alt="FlowBite Logo" />
+              <span className="self-center text-sm md:text-2xl font-semibold whitespace-nowrap ">
+                CA ON CONSULTATOR
               </span>
             </a>
+            <div className="my-10">
+              <label htmlFor="">Input your Email : </label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="py-2 mr-5"
+                name=""
+                id=""
+              />
+            </div>
+            <div className="flex items-center">
+              <th
+                scope="row"
+                class="flex items-center   text-gray-900 whitespace-nowrap"
+              >
+                <FaRegCommentDots class="w-10 h-10 text-red-400 rounded-full"></FaRegCommentDots>
+
+                <div class="pl-3">
+                  <div class="font-normal text-green-700">Contact Me</div>
+                  <div class="text-base font-semibold text-gray-800">
+                    +1767988385
+                  </div>
+                </div>
+              </th>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
                 Resources
               </h2>
-              <ul className="text-gray-600 ">
-                <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline">
-                    Flowbite
-                  </a>
+              <ul className="text-green-700 ">
+                <li>
+                  <Link
+                    to="/home"
+                    className="text-green-700  hover:underline"
+                    aria-current="page"
+                  >
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="https://tailwindcss.com/"
-                    className="hover:underline"
+                  <Link
+                    to="/blog"
+                    className="text-green-700  hover:underline"
+                    aria-current="page"
                   >
-                    Tailwind CSS
-                  </a>
+                    All Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/blog"
+                    className="text-green-700  hover:underline"
+                    aria-current="page"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/login"
+                    className="text-green-700 hover:underline"
+                    aria-current="page"
+                  >
+                    login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/register"
+                    className="text-green-700  hover:underline"
+                    aria-current="page"
+                  >
+                    regester
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -42,7 +98,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
                 Follow us
               </h2>
-              <ul className="text-gray-600 ">
+              <ul className="text-green-700 ">
                 <li className="mb-4">
                   <a
                     href="https://github.com/themesberg/flowbite"
@@ -56,7 +112,7 @@ const Footer = () => {
                     href="https://discord.gg/4eeurUVvTy"
                     className="hover:underline"
                   >
-                    Discord
+                    linkedin
                   </a>
                 </li>
               </ul>
@@ -65,7 +121,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
                 Legal
               </h2>
-              <ul className="text-gray-600 ">
+              <ul className="text-green-700 ">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
                     Privacy Policy
@@ -85,7 +141,7 @@ const Footer = () => {
           <span className="text-sm text-gray-500 sm:text-center">
             © 2022{" "}
             <a href="https://flowbite.com/" className="hover:underline">
-              Flowbite™
+              CA ON CONSULTATOR
             </a>
             . All Rights Reserved.
           </span>

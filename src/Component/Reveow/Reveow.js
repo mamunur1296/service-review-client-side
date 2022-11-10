@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 import moment from "moment";
 import ReactStars from "react-rating-stars-component";
+import { toast } from "react-toastify";
+import { FaRegUser } from "react-icons/fa";
 
 const Reveow = ({ data, setRefresh, refresh }) => {
   const { user } = useContext(AuthContext);
@@ -42,7 +44,9 @@ const Reveow = ({ data, setRefresh, refresh }) => {
         console.log(data);
         if (data.acknowledged) {
           alert("post complite");
+          toast.success("successfull");
           setRefresh(!refresh);
+
           from.reset();
         }
       });
@@ -62,11 +66,23 @@ const Reveow = ({ data, setRefresh, refresh }) => {
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>
-                <img
-                  src={user?.photoURL}
-                  alt=""
-                  className="object-cover w-12 h-12 rounded-full bg-gray-500"
-                />
+                {user.photoURL ? (
+                  <>
+                    <img
+                      src={user?.photoURL}
+                      alt=""
+                      className="object-cover w-12 h-12 rounded-full bg-gray-500"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <>
+                      <div className=" outline outline-1 rounded-full ">
+                        <FaRegUser className="object-cover w-12 h-12 p-2 rounded-full bg-white "></FaRegUser>
+                      </div>
+                    </>
+                  </>
+                )}
               </div>
               <div>
                 <h4 className="font-bold">{user?.displayName}</h4>
@@ -100,7 +116,7 @@ const Reveow = ({ data, setRefresh, refresh }) => {
             <div className="md:grid my-10 md:grid-cols-7">
               <button
                 type="submit"
-                className="btn outline outline-1 px-10 py-2  "
+                className=" text-xl outline outline-1 outline-green-500 hover:outline-red-500 py-2 px-10 rounded"
               >
                 Post Now
               </button>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PostUpdate = () => {
   const info = useLoaderData();
@@ -19,7 +20,7 @@ const PostUpdate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          alert("your product successFully updated");
+          toast.success("post updated");
           navigate("/post");
         }
       });

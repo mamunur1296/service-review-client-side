@@ -51,6 +51,24 @@ const Nave = () => {
                   Home
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/allService"
+                  className="text-gray-900  hover:underline"
+                  aria-current="page"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="text-gray-900  hover:underline"
+                  aria-current="page"
+                >
+                  Blog
+                </Link>
+              </li>
               {user ? (
                 <>
                   <li>
@@ -59,7 +77,7 @@ const Nave = () => {
                       className="text-gray-900  hover:underline"
                       aria-current="page"
                     >
-                      Post
+                      Add service
                     </Link>
                   </li>
                   <li>
@@ -90,15 +108,6 @@ const Nave = () => {
                       aria-current="page"
                     >
                       login
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/register"
-                      className="text-gray-900  hover:underline"
-                      aria-current="page"
-                    >
-                      regester
                     </Link>
                   </li>
                 </>

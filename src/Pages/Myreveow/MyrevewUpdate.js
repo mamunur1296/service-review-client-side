@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 
 const MyrevewUpdate = () => {
@@ -20,7 +21,7 @@ const MyrevewUpdate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          alert("your product successFully updated");
+          toast.success("update successfully");
           navigate("/myrevew");
         }
       });
@@ -44,6 +45,7 @@ const MyrevewUpdate = () => {
               className="h-6 col-span-6 md:w-72 outline-green-600 outline  outline-1"
               type="text"
               name="title"
+              readOnly
               defaultValue={user?.displayName}
             />
           </div>
@@ -53,6 +55,7 @@ const MyrevewUpdate = () => {
               className="h-6 col-span-6 md:w-72 outline-green-600 outline  outline-1"
               type="text"
               name="photo"
+              readOnly
               defaultValue={user?.email}
             />
           </div>
@@ -62,6 +65,7 @@ const MyrevewUpdate = () => {
               className="h-6 col-span-6 md:w-72 outline outline-green-600  outline-1"
               type="text"
               name="price"
+              readOnly
               defaultValue={data.title}
             />
           </div>
@@ -79,7 +83,7 @@ const MyrevewUpdate = () => {
           <div className="md:grid my-10 md:grid-cols-7">
             <p></p>
 
-            <button className="btn outline outline-1 px-10 py-2  ">
+            <button className="btn outline-green-500 hover:outline-red-500 outline outline-1 px-10 py-2  ">
               Update Now
             </button>
           </div>

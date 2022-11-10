@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import useTitle from "../../Hocks/useTitle";
 import PostControl from "./PostControl";
+import { toast } from "react-toastify";
 
 const PostService = () => {
   useTitle("Admine Controll For Post ");
@@ -21,7 +22,7 @@ const PostService = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("post complite");
+          toast.success("post successfull");
           setRefresh(!refresh);
           from.reset();
         }
@@ -80,7 +81,7 @@ const PostService = () => {
         </div>
         <div className="md:grid my-10 md:grid-cols-7">
           <p></p>
-          <button className="btn outline outline-1 px-10 py-2  ">
+          <button className="btn outline-green-500 hover:outline-red-500 outline outline-1 px-10 py-2  ">
             Post Now
           </button>
         </div>

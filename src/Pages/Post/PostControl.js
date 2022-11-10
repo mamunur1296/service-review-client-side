@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import PostControlColl from "./PostControlColl";
 
 const PostControl = ({ refresh, setRefresh }) => {
@@ -22,7 +23,7 @@ const PostControl = ({ refresh, setRefresh }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            alert("success");
+            toast.success("delete successfull");
             setRefresh(!refresh);
           }
         });

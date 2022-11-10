@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FaRegUser } from "react-icons/fa";
+import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 
 const Revews = ({ rev }) => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
-      <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-700 b text-black">
+      <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md   text-black">
         <div className="flex justify-between p-4">
           <div className="flex space-x-4">
             <div>
-              <img
-                src={rev.userImg}
-                alt=""
-                className="object-cover w-12 h-12 rounded-full bg-gray-500"
-              />
+              {rev.userImg ? (
+                <>
+                  <img
+                    src={rev.userImg}
+                    alt="No pick"
+                    className="object-cover w-12 h-12 rounded-full "
+                  />
+                </>
+              ) : (
+                <>
+                  <div className=" outline outline-1 rounded-full ">
+                    <FaRegUser className="object-cover w-12 h-12 p-2 rounded-full bg-white "></FaRegUser>
+                  </div>
+                </>
+              )}
             </div>
             <div>
               <h4 className="font-bold">{rev.name}</h4>

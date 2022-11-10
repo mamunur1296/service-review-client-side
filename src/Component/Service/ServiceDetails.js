@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../AuthProvaider/AuthProvaider";
 import useTitle from "../../Hocks/useTitle";
 import Reveow from "../Reveow/Reveow";
@@ -23,7 +24,7 @@ const ServiceDetails = () => {
   useTitle(data.title);
   return (
     <div>
-      <section className="p-5 mx-auto w-10/12  text-black">
+      <section className="p-5 mx-auto w-11/12 md:w-10/12  text-black">
         <div className="flex flex-col   mx-auto overflow-hidden rounded">
           <img
             src={data.photo}
@@ -35,16 +36,16 @@ const ServiceDetails = () => {
               <a
                 rel="noopener noreferrer"
                 href="#"
-                className="inline-block text-2xl text-gray-200 font-semibold sm:text-3xl"
+                className="inline-block mt-10 mb-5 text-2xl text-gray-200 font-semibold sm:text-3xl"
               >
                 {data.title}
               </a>
-              <p className="text-xs text-gray-100">
+              <p className="text-xl  text-gray-100">
                 Proce : $
                 <a
                   rel="noopener noreferrer"
                   href="#"
-                  className="text-xs hover:underline"
+                  className="text-xl hover:underline"
                 >
                   {data.price}
                 </a>
@@ -74,7 +75,9 @@ const ServiceDetails = () => {
               </>
             ) : (
               <>
-                <Link to="/login">Please login to add a review</Link>
+                <p className="text-3xl my-40 text-center text-green-600">
+                  <Link to="/login">Please login to add a review</Link>
+                </p>
               </>
             )}
           </div>
