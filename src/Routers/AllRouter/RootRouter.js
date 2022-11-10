@@ -3,6 +3,10 @@ import EooroPage from "../../Component/Error/EooroPage";
 import AllService from "../../Component/Home/AllService";
 import ServiceDetails from "../../Component/Service/ServiceDetails";
 import Blog from "../../Pages/Blog/Blog";
+import Blogfore from "../../Pages/Blog/Blogfore";
+import BlogOne from "../../Pages/Blog/BlogOne";
+import Blogthree from "../../Pages/Blog/Blogthree";
+import Blogtwo from "../../Pages/Blog/Blogtwo";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Main from "../../Pages/Main/Main";
@@ -50,6 +54,24 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+        children: [
+          {
+            path: "/blog",
+            element: <BlogOne></BlogOne>,
+          },
+          {
+            path: "/blog/1",
+            element: <Blogtwo></Blogtwo>,
+          },
+          {
+            path: "/blog/2",
+            element: <Blogthree></Blogthree>,
+          },
+          {
+            path: "/blog/3",
+            element: <Blogfore></Blogfore>,
+          },
+        ],
       },
       {
         path: "/postUpdate/:id",
